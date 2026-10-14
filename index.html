@@ -50,7 +50,7 @@ html, body {
 
 .start-content {
     width: min(90%, 700px);
-    padding: 45px 30px;
+    padding: 40px 30px;
 
     background: rgba(0, 0, 0, .35);
     backdrop-filter: blur(8px);
@@ -64,7 +64,7 @@ html, body {
 }
 
 .logo {
-    font-size: clamp(45px, 8vw, 85px);
+    font-size: clamp(40px, 7vw, 75px);
     font-weight: 900;
 
     color: #fff;
@@ -72,68 +72,127 @@ html, body {
         0 4px 0 #315c35,
         0 8px 15px rgba(0,0,0,.5);
 
-    margin-bottom: 5px;
+    margin-bottom: 2px;
 }
 
 .subtitle {
-    font-size: clamp(18px, 3vw, 26px);
+    font-size: clamp(16px, 2.5vw, 24px);
     color: #dff6ff;
-    margin-bottom: 35px;
+    margin-bottom: 15px;
+}
+
+.dev-credit {
+    font-size: 14px;
+    color: #ffd95a;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+    text-transform: uppercase;
 }
 
 .start-description {
-    font-size: 16px;
-    line-height: 1.6;
+    font-size: 15px;
+    line-height: 1.5;
     color: #eee;
 
     max-width: 520px;
-    margin: 0 auto 30px;
+    margin: 0 auto 25px;
 }
 
-#startButton {
+.menu-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-main {
     border: none;
-    padding: 18px 42px;
-
+    padding: 15px 32px;
     border-radius: 12px;
-
-    background:
-        linear-gradient(
-            #ffd95a,
-            #e99c18
-        );
-
+    background: linear-gradient(#ffd95a, #e99c18);
     color: #442500;
-
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 900;
-
     cursor: pointer;
-
-    box-shadow:
-        0 7px 0 #9b5e0c,
-        0 12px 25px rgba(0,0,0,.35);
-
+    box-shadow: 0 7px 0 #9b5e0c, 0 12px 25px rgba(0,0,0,.35);
     transition: .15s;
 }
 
-#startButton:hover {
-    transform: translateY(-3px);
-    box-shadow:
-        0 10px 0 #9b5e0c,
-        0 16px 30px rgba(0,0,0,.4);
+.btn-secondary {
+    border: 2px solid rgba(255,255,255,0.6);
+    padding: 15px 25px;
+    border-radius: 12px;
+    background: rgba(0,0,0,0.3);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .15s;
 }
 
-#startButton:active {
-    transform: translateY(5px);
-    box-shadow:
-        0 2px 0 #9b5e0c,
-        0 5px 10px rgba(0,0,0,.3);
+.btn-main:hover, .btn-secondary:hover {
+    transform: translateY(-3px);
 }
 
 .controls-info {
-    margin-top: 28px;
+    margin-top: 25px;
     color: #ddd;
-    font-size: 14px;
+    font-size: 13px;
+}
+
+/* =====================================================
+   RANKING MODAL
+===================================================== */
+
+#rankingModal {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(5px);
+}
+
+.ranking-content {
+    width: min(90%, 450px);
+    background: #183320;
+    border: 2px solid #5fa94e;
+    border-radius: 20px;
+    padding: 30px;
+    color: white;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+}
+
+.ranking-content h2 {
+    margin-bottom: 20px;
+    color: #ffd95a;
+}
+
+#rankingList {
+    list-style: none;
+    margin-bottom: 20px;
+    max-height: 250px;
+    overflow-y: auto;
+    text-align: left;
+    background: rgba(0,0,0,0.2);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#rankingList li {
+    padding: 8px 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+}
+
+#rankingList li:last-child {
+    border-bottom: none;
 }
 
 /* =====================================================
@@ -161,10 +220,8 @@ html, body {
 
 #world {
     position: absolute;
-
     width: 6000px;
     height: 100%;
-
     left: 0;
     top: 0;
 }
@@ -175,15 +232,11 @@ html, body {
 
 #sun {
     position: absolute;
-
     width: 130px;
     height: 130px;
-
     top: 70px;
     left: 900px;
-
     border-radius: 50%;
-
     background:
         radial-gradient(
             circle,
@@ -192,7 +245,6 @@ html, body {
             #ffc34d 70%,
             rgba(255,195,77,0) 71%
         );
-
     filter: blur(.5px);
 }
 
@@ -203,28 +255,21 @@ html, body {
 .mountain {
     position: absolute;
     bottom: 270px;
-
     width: 0;
     height: 0;
-
     border-left: 220px solid transparent;
     border-right: 220px solid transparent;
     border-bottom: 330px solid #587b6b;
-
     opacity: .9;
 }
 
 .mountain::after {
     content: "";
-
     position: absolute;
-
     left: -80px;
     top: 80px;
-
     width: 0;
     height: 0;
-
     border-left: 80px solid transparent;
     border-right: 80px solid transparent;
     border-bottom: 120px solid #e9f3ed;
@@ -237,10 +282,8 @@ html, body {
 .tree {
     position: absolute;
     bottom: 270px;
-
     width: 35px;
     height: 150px;
-
     background:
         linear-gradient(
             90deg,
@@ -248,23 +291,17 @@ html, body {
             #8c5b2c,
             #573719
         );
-
     border-radius: 5px;
 }
 
 .tree::before {
     content: "";
-
     position: absolute;
-
     width: 130px;
     height: 130px;
-
     left: -48px;
     top: -95px;
-
     border-radius: 50%;
-
     background:
         radial-gradient(
             circle at 30% 30%,
@@ -272,7 +309,6 @@ html, body {
             #36773c 65%,
             #24552d 100%
         );
-
     box-shadow:
         35px 20px 0 #397c3e,
         -25px 25px 0 #438843;
@@ -284,32 +320,24 @@ html, body {
 
 .cloud {
     position: absolute;
-
     width: 160px;
     height: 45px;
-
     background: rgba(255,255,255,.85);
-
     border-radius: 50px;
-
     filter: blur(.5px);
 }
 
 .cloud::before,
 .cloud::after {
     content: "";
-
     position: absolute;
-
     background: rgba(255,255,255,.9);
-
     border-radius: 50%;
 }
 
 .cloud::before {
     width: 70px;
     height: 70px;
-
     left: 25px;
     top: -35px;
 }
@@ -317,7 +345,6 @@ html, body {
 .cloud::after {
     width: 90px;
     height: 90px;
-
     right: 15px;
     top: -48px;
 }
@@ -328,13 +355,10 @@ html, body {
 
 .ground {
     position: absolute;
-
     left: 0;
     top: 550px;
-
     width: 6000px;
     height: 300px;
-
     background:
         linear-gradient(
             to bottom,
@@ -343,25 +367,19 @@ html, body {
             #704426 16px,
             #633b22 100%
         );
-
     border-top: 3px solid #9bd15d;
 }
 
-/* pequenas pedras no chão */
-
 .rock {
     position: absolute;
-
     width: 25px;
     height: 15px;
-
     background:
         linear-gradient(
             135deg,
             #777,
             #444
         );
-
     border-radius: 60% 50% 30% 40%;
 }
 
@@ -371,9 +389,7 @@ html, body {
 
 .platform {
     position: absolute;
-
     height: 38px;
-
     background:
         linear-gradient(
             to bottom,
@@ -382,13 +398,10 @@ html, body {
             #80502c 10px,
             #61391e 100%
         );
-
     border-radius: 5px;
-
     box-shadow:
         inset 0 -5px rgba(0,0,0,.15),
         0 5px 8px rgba(0,0,0,.15);
-
     border: 2px solid #4f321e;
 }
 
@@ -398,12 +411,9 @@ html, body {
 
 #player {
     position: absolute;
-
     width: 42px;
     height: 62px;
-
     z-index: 50;
-
     background:
         linear-gradient(
             90deg,
@@ -411,54 +421,37 @@ html, body {
             #2c83d1,
             #174f91
         );
-
     border-radius: 9px 9px 5px 5px;
-
     box-shadow:
         inset -5px 0 rgba(0,0,0,.15),
         0 5px 5px rgba(0,0,0,.25);
 }
 
-/* cabeça */
-
 #player::before {
     content: "";
-
     position: absolute;
-
     width: 39px;
     height: 36px;
-
     left: 2px;
     top: -28px;
-
     border-radius: 50%;
-
     background:
         radial-gradient(
             circle at 60% 40%,
             #f4bd91,
             #d98b5e
         );
-
     border: 2px solid #a75d3c;
 }
 
-/* cabelo */
-
 #player::after {
     content: "";
-
     position: absolute;
-
     width: 42px;
     height: 14px;
-
     left: 0;
     top: -29px;
-
     border-radius: 50% 50% 10px 10px;
-
     background: #3b2417;
 }
 
@@ -468,14 +461,10 @@ html, body {
 
 .coin {
     position: absolute;
-
     width: 27px;
     height: 32px;
-
     border-radius: 50%;
-
     z-index: 30;
-
     background:
         radial-gradient(
             circle at 35% 30%,
@@ -483,39 +472,19 @@ html, body {
             #ffd633 35%,
             #e79d00 100%
         );
-
     border: 3px solid #d89000;
-
-    box-shadow:
-        0 0 10px rgba(255,214,0,.5);
-
-    animation:
-        coinFloat 1s ease-in-out infinite,
-        coinSpin .8s linear infinite;
+    box-shadow: 0 0 10px rgba(255,214,0,.5);
+    animation: coinFloat 1s ease-in-out infinite, coinSpin .8s linear infinite;
 }
 
 @keyframes coinFloat {
-
-    0%, 100% {
-        margin-top: 0;
-    }
-
-    50% {
-        margin-top: -8px;
-    }
-
+    0%, 100% { margin-top: 0; }
+    50% { margin-top: -8px; }
 }
 
 @keyframes coinSpin {
-
-    0%, 100% {
-        transform: scaleX(1);
-    }
-
-    50% {
-        transform: scaleX(.35);
-    }
-
+    0%, 100% { transform: scaleX(1); }
+    50% { transform: scaleX(.35); }
 }
 
 /* =====================================================
@@ -524,51 +493,33 @@ html, body {
 
 .enemy {
     position: absolute;
-
     width: 48px;
     height: 38px;
-
     z-index: 40;
-
     border-radius: 22px 22px 9px 9px;
-
     background:
         linear-gradient(
             to bottom,
             #89542c,
             #4f2d18
         );
-
-    box-shadow:
-        0 5px 6px rgba(0,0,0,.3);
+    box-shadow: 0 5px 6px rgba(0,0,0,.3);
 }
 
 .enemy::before,
 .enemy::after {
     content: "";
-
     position: absolute;
-
     top: 10px;
-
     width: 9px;
     height: 9px;
-
     border-radius: 50%;
-
     background: white;
-
-    box-shadow:
-        inset 0 0 0 3px #222;
+    box-shadow: inset 0 0 0 3px #222;
 }
 
-.enemy::before {
-    left: 10px;
-}
-
-.enemy::after {
-    right: 10px;
-}
+.enemy::before { left: 10px; }
+.enemy::after { right: 10px; }
 
 /* =====================================================
    BANDEIRA
@@ -576,10 +527,8 @@ html, body {
 
 #flag {
     position: absolute;
-
     width: 12px;
     height: 190px;
-
     background:
         linear-gradient(
             90deg,
@@ -587,34 +536,23 @@ html, body {
             #fff,
             #bbb
         );
-
     z-index: 20;
 }
 
 #flag::after {
     content: "";
-
     position: absolute;
-
     left: 12px;
     top: 5px;
-
     width: 85px;
     height: 55px;
-
     background:
         linear-gradient(
             135deg,
             #ef5350,
             #b71c1c
         );
-
-    clip-path:
-        polygon(
-            0 0,
-            100% 30%,
-            0 60%
-        );
+    clip-path: polygon(0 0, 100% 30%, 0 60%);
 }
 
 /* =====================================================
@@ -623,77 +561,59 @@ html, body {
 
 #hud {
     position: fixed;
-
     z-index: 500;
-
     top: 15px;
     left: 20px;
-
     color: white;
-
     padding: 12px 18px;
-
     background: rgba(0,0,0,.35);
-
     border-radius: 12px;
-
     backdrop-filter: blur(5px);
-
     font-size: 18px;
     font-weight: bold;
-
     text-shadow: 2px 2px 3px #000;
 }
 
 /* =====================================================
-   MENSAGEM
+   MENSAGEM DE FIM DE JOGO
 ===================================================== */
 
 #message {
     position: fixed;
-
     z-index: 900;
-
     left: 50%;
     top: 50%;
-
     transform: translate(-50%, -50%);
-
     display: none;
-
     text-align: center;
-
     color: white;
-
-    padding: 40px;
-
+    padding: 30px;
     min-width: 320px;
-
     border-radius: 20px;
-
-    background: rgba(0,0,0,.7);
-
-    box-shadow:
-        0 20px 60px rgba(0,0,0,.5);
-
+    background: rgba(0,0,0,0.85);
+    box-shadow: 0 20px 60px rgba(0,0,0,.5);
     text-shadow: 2px 2px #000;
 }
 
+#message input {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    width: 80%;
+    text-align: center;
+}
+
 #message button {
-    margin-top: 20px;
-
-    padding: 13px 25px;
-
+    margin-top: 15px;
+    padding: 12px 25px;
     border: none;
     border-radius: 10px;
-
     background: #ffd23f;
-
     color: #422b00;
-
     font-weight: bold;
-    font-size: 17px;
-
+    font-size: 16px;
     cursor: pointer;
 }
 
@@ -703,18 +623,12 @@ html, body {
 
 #controls {
     position: fixed;
-
     z-index: 700;
-
     bottom: 20px;
-
     left: 20px;
     right: 20px;
-
     display: flex;
-
     justify-content: space-between;
-
     pointer-events: none;
 }
 
@@ -726,28 +640,19 @@ html, body {
 .control {
     width: 65px;
     height: 65px;
-
     border-radius: 50%;
-
     border: 2px solid rgba(255,255,255,.7);
-
     background: rgba(0,0,0,.35);
-
     color: white;
-
     font-size: 28px;
-
     pointer-events: auto;
-
     touch-action: none;
 }
 
 @media (min-width: 800px) {
-
     #controls {
         display: none;
     }
-
 }
 </style>
 </head>
@@ -759,50 +664,47 @@ html, body {
 ===================================================== -->
 
 <div id="startScreen">
-
     <div class="start-content">
-
-        <div class="logo">
-            AVENTURA
-        </div>
-
-        <div class="subtitle">
-            O Vale Perdido
-        </div>
+        <div class="logo">AVENTURA</div>
+        <div class="subtitle">O Vale Perdido</div>
+        <div class="dev-credit">Desenvolvido por Dev Junior</div>
 
         <div class="start-description">
-
             Explore um vale misterioso, atravesse montanhas,
             colete moedas, enfrente criaturas e encontre
             a bandeira no final da jornada.
-
         </div>
 
-        <button id="startButton">
-            ▶ COMEÇAR A AVENTURA
-        </button>
+        <div class="menu-buttons">
+            <button id="startButton" class="btn-main">▶ COMEÇAR</button>
+            <button onclick="openRanking()" class="btn-secondary">🏆 RANKING</button>
+        </div>
 
         <div class="controls-info">
             PC: A/D ou ←/→ para andar • Espaço/W/↑ para pular
         </div>
-
     </div>
-
 </div>
 
+<!-- =====================================================
+     MODAL DE RANKING
+===================================================== -->
+
+<div id="rankingModal">
+    <div class="ranking-content">
+        <h2>🏆 Melhores Jogadores</h2>
+        <ul id="rankingList"></ul>
+        <button onclick="closeRanking()" class="btn-main" style="padding: 10px 20px; font-size: 15px;">Fechar</button>
+    </div>
+</div>
 
 <!-- =====================================================
      JOGO
 ===================================================== -->
 
 <div id="game">
-
     <div id="world">
-
         <div id="sun"></div>
-
-        <!-- Nuvens -->
-
         <div class="cloud" style="left:200px;top:100px"></div>
         <div class="cloud" style="left:800px;top:160px"></div>
         <div class="cloud" style="left:1500px;top:90px"></div>
@@ -810,16 +712,12 @@ html, body {
         <div class="cloud" style="left:3200px;top:100px"></div>
         <div class="cloud" style="left:4200px;top:170px"></div>
 
-        <!-- Montanhas -->
-
         <div class="mountain" style="left:300px"></div>
         <div class="mountain" style="left:850px; transform:scale(.8)"></div>
         <div class="mountain" style="left:1500px; transform:scale(1.2)"></div>
         <div class="mountain" style="left:2400px; transform:scale(.9)"></div>
         <div class="mountain" style="left:3300px; transform:scale(1.1)"></div>
         <div class="mountain" style="left:4300px"></div>
-
-        <!-- Árvores -->
 
         <div class="tree" style="left:180px"></div>
         <div class="tree" style="left:650px;transform:scale(.8)"></div>
@@ -830,11 +728,7 @@ html, body {
         <div class="tree" style="left:3600px;transform:scale(1.1)"></div>
         <div class="tree" style="left:4100px"></div>
 
-        <!-- Chão -->
-
         <div class="ground"></div>
-
-        <!-- Pedras -->
 
         <div class="rock" style="left:300px;top:535px"></div>
         <div class="rock" style="left:850px;top:535px"></div>
@@ -843,55 +737,18 @@ html, body {
         <div class="rock" style="left:2900px;top:535px"></div>
         <div class="rock" style="left:3800px;top:535px"></div>
 
-        <!-- Jogador -->
-
         <div id="player"></div>
 
-
-        <!-- Plataformas -->
-
-        <div class="platform"
-             style="left:0;top:550px;width:600px">
-        </div>
-
-        <div class="platform"
-             style="left:720px;top:470px;width:240px">
-        </div>
-
-        <div class="platform"
-             style="left:1060px;top:520px;width:280px">
-        </div>
-
-        <div class="platform"
-             style="left:1430px;top:430px;width:320px">
-        </div>
-
-        <div class="platform"
-             style="left:1850px;top:490px;width:420px">
-        </div>
-
-        <div class="platform"
-             style="left:2400px;top:410px;width:270px">
-        </div>
-
-        <div class="platform"
-             style="left:2800px;top:520px;width:400px">
-        </div>
-
-        <div class="platform"
-             style="left:3300px;top:440px;width:350px">
-        </div>
-
-        <div class="platform"
-             style="left:3750px;top:510px;width:400px">
-        </div>
-
-        <div class="platform"
-             style="left:4250px;top:420px;width:500px">
-        </div>
-
-
-        <!-- Moedas -->
+        <div class="platform" style="left:0;top:550px;width:600px"></div>
+        <div class="platform" style="left:720px;top:470px;width:240px"></div>
+        <div class="platform" style="left:1060px;top:520px;width:280px"></div>
+        <div class="platform" style="left:1430px;top:430px;width:320px"></div>
+        <div class="platform" style="left:1850px;top:490px;width:420px"></div>
+        <div class="platform" style="left:2400px;top:410px;width:270px"></div>
+        <div class="platform" style="left:2800px;top:520px;width:400px"></div>
+        <div class="platform" style="left:3300px;top:440px;width:350px"></div>
+        <div class="platform" style="left:3750px;top:510px;width:400px"></div>
+        <div class="platform" style="left:4250px;top:420px;width:500px"></div>
 
         <div class="coin" style="left:250px;top:470px"></div>
         <div class="coin" style="left:350px;top:470px"></div>
@@ -912,851 +769,279 @@ html, body {
         <div class="coin" style="left:4400px;top:370px"></div>
         <div class="coin" style="left:4500px;top:370px"></div>
 
+        <div class="enemy" data-x="550" style="left:550px;top:512px"></div>
+        <div class="enemy" data-x="1080" style="left:1080px;top:482px"></div>
+        <div class="enemy" data-x="1500" style="left:1500px;top:392px"></div>
+        <div class="enemy" data-x="1950" style="left:1950px;top:452px"></div>
+        <div class="enemy" data-x="2880" style="left:2880px;top:482px"></div>
+        <div class="enemy" data-x="3380" style="left:3380px;top:402px"></div>
+        <div class="enemy" data-x="3900" style="left:3900px;top:472px"></div>
 
-        <!-- Inimigos -->
-
-        <div class="enemy"
-             data-x="550"
-             style="left:550px;top:512px">
-        </div>
-
-        <div class="enemy"
-             data-x="1080"
-             style="left:1080px;top:482px">
-        </div>
-
-        <div class="enemy"
-             data-x="1500"
-             style="left:1500px;top:392px">
-        </div>
-
-        <div class="enemy"
-             data-x="1950"
-             style="left:1950px;top:452px">
-        </div>
-
-        <div class="enemy"
-             data-x="2880"
-             style="left:2880px;top:482px">
-        </div>
-
-        <div class="enemy"
-             data-x="3380"
-             style="left:3380px;top:402px">
-        </div>
-
-        <div class="enemy"
-             data-x="3900"
-             style="left:3900px;top:472px">
-        </div>
-
-
-        <!-- Bandeira -->
-
-        <div id="flag"
-             style="left:4680px;top:230px">
-        </div>
-
+        <div id="flag" style="left:4680px;top:230px"></div>
     </div>
-
-
-    <!-- HUD -->
 
     <div id="hud">
-
-        🪙 Moedas:
-        <span id="coins">0</span>
-
-        &nbsp;&nbsp;
-
-        ❤️ Vidas:
-        <span id="lives">3</span>
-
+        🪙 Moedas: <span id="coins">0</span> &nbsp;&nbsp; ❤️ Vidas: <span id="lives">3</span>
     </div>
-
-
-    <!-- Mensagem final -->
 
     <div id="message">
-
         <h1 id="messageText"></h1>
-
-        <button onclick="restartGame()">
-            Jogar novamente
-        </button>
-
+        <div id="scoreInputArea">
+            <p style="font-size: 14px; margin-top: 10px;">Digite seu nome para o Ranking:</p>
+            <input type="text" id="playerName" placeholder="Seu Nome" maxlength="15">
+            <br>
+            <button onclick="saveScoreAndRestart()">Salvar & Jogar de Novo</button>
+        </div>
     </div>
-
-
-    <!-- Controles mobile -->
 
     <div id="controls">
-
         <div class="control-group">
-
-            <button class="control" id="left">
-                ←
-            </button>
-
-            <button class="control" id="right">
-                →
-            </button>
-
+            <button class="control" id="left">←</button>
+            <button class="control" id="right">→</button>
         </div>
-
-        <button class="control" id="jump">
-            ↑
-        </button>
-
+        <button class="control" id="jump">↑</button>
     </div>
-
 </div>
 
-
 <script>
+const startScreen = document.getElementById("startScreen");
+const startButton = document.getElementById("startButton");
+const player = document.getElementById("player");
+const world = document.getElementById("world");
+const coinsText = document.getElementById("coins");
+const livesText = document.getElementById("lives");
+const message = document.getElementById("message");
+const messageText = document.getElementById("messageText");
+const rankingModal = document.getElementById("rankingModal");
+const rankingList = document.getElementById("rankingList");
+const playerNameInput = document.getElementById("playerName");
 
-/* =====================================================
-   ELEMENTOS
-===================================================== */
-
-const startScreen =
-    document.getElementById("startScreen");
-
-const startButton =
-    document.getElementById("startButton");
-
-const player =
-    document.getElementById("player");
-
-const world =
-    document.getElementById("world");
-
-const coinsText =
-    document.getElementById("coins");
-
-const livesText =
-    document.getElementById("lives");
-
-const message =
-    document.getElementById("message");
-
-const messageText =
-    document.getElementById("messageText");
-
-const platforms =
-    [...document.querySelectorAll(".platform")];
-
-const coins =
-    [...document.querySelectorAll(".coin")];
-
-const enemies =
-    [...document.querySelectorAll(".enemy")];
-
-const flag =
-    document.getElementById("flag");
-
-
-/* =====================================================
-   ESTADO
-===================================================== */
+const platforms = [...document.querySelectorAll(".platform")];
+const coins = [...document.querySelectorAll(".coin")];
+const enemies = [...document.querySelectorAll(".enemy")];
+const flag = document.getElementById("flag");
 
 let gameRunning = false;
-
 let playerX = 100;
 let playerY = 470;
-
 let velocityX = 0;
 let velocityY = 0;
-
 let speed = 5;
 let jumpPower = 14;
-
 let gravity = .65;
-
 let grounded = false;
-
 let cameraX = 0;
-
 let score = 0;
 let lives = 3;
-
 const worldWidth = 6000;
 
-
-/* =====================================================
-   CONTROLES
-===================================================== */
-
-const keys = {
-    left: false,
-    right: false,
-    jump: false
-};
-
-
-/* =====================================================
-   INICIAR
-===================================================== */
+const keys = { left: false, right: false, jump: false };
 
 startButton.addEventListener("click", () => {
-
     startScreen.style.display = "none";
-
     gameRunning = true;
-
     requestAnimationFrame(gameLoop);
-
 });
 
-
-/* =====================================================
-   TECLADO
-===================================================== */
-
-document.addEventListener("keydown", event => {
-
-    if (
-        event.key === "ArrowLeft" ||
-        event.key.toLowerCase() === "a"
-    ) {
-        keys.left = true;
-    }
-
-    if (
-        event.key === "ArrowRight" ||
-        event.key.toLowerCase() === "d"
-    ) {
-        keys.right = true;
-    }
-
-    if (
-        event.key === "ArrowUp" ||
-        event.key.toLowerCase() === "w" ||
-        event.key === " "
-    ) {
-
-        keys.jump = true;
-
-        event.preventDefault();
-
-    }
-
-});
-
-
-document.addEventListener("keyup", event => {
-
-    if (
-        event.key === "ArrowLeft" ||
-        event.key.toLowerCase() === "a"
-    ) {
-        keys.left = false;
-    }
-
-    if (
-        event.key === "ArrowRight" ||
-        event.key.toLowerCase() === "d"
-    ) {
-        keys.right = false;
-    }
-
-    if (
-        event.key === "ArrowUp" ||
-        event.key.toLowerCase() === "w" ||
-        event.key === " "
-    ) {
-        keys.jump = false;
-    }
-
-});
-
-
-/* =====================================================
-   CONTROLES DE CELULAR
-===================================================== */
-
-function mobileButton(id, key) {
-
-    const button =
-        document.getElementById(id);
-
-    button.addEventListener(
-        "pointerdown",
-        event => {
-
-            event.preventDefault();
-
-            keys[key] = true;
-
-        }
-    );
-
-    button.addEventListener(
-        "pointerup",
-        event => {
-
-            event.preventDefault();
-
-            keys[key] = false;
-
-        }
-    );
-
-    button.addEventListener(
-        "pointercancel",
-        () => {
-
-            keys[key] = false;
-
-        }
-    );
-
-    button.addEventListener(
-        "pointerleave",
-        () => {
-
-            keys[key] = false;
-
-        }
-    );
+function openRanking() {
+    renderRanking();
+    rankingModal.style.display = "flex";
 }
 
+function closeRanking() {
+    rankingModal.style.display = "none";
+}
+
+function renderRanking() {
+    let ranking = JSON.parse(localStorage.getItem("valePerdidoRanking")) || [];
+    ranking.sort((a, b) => b.score - a.score);
+    rankingList.innerHTML = "";
+    
+    if (ranking.length === 0) {
+        rankingList.innerHTML = "<li style='text-align:center;'>Nenhum recorde salvo ainda!</li>";
+        return;
+    }
+
+    ranking.slice(0, 5).forEach((item, index) => {
+        let li = document.createElement("li");
+        li.innerHTML = `<span>#${index + 1} ${item.name}</span> <span>🪙 ${item.score}</span>`;
+        rankingList.appendChild(li);
+    });
+}
+
+function saveScoreAndRestart() {
+    let name = playerNameInput.value.trim() || "Anônimo";
+    let ranking = JSON.parse(localStorage.getItem("valePerdidoRanking")) || [];
+    ranking.push({ name: name, score: score });
+    localStorage.setItem("valePerdidoRanking", JSON.stringify(ranking));
+    location.reload();
+}
+
+document.addEventListener("keydown", event => {
+    if (event.key === "ArrowLeft" || event.key.toLowerCase() === "a") keys.left = true;
+    if (event.key === "ArrowRight" || event.key.toLowerCase() === "d") keys.right = true;
+    if (event.key === "ArrowUp" || event.key.toLowerCase() === "w" || event.key === " ") {
+        keys.jump = true;
+        event.preventDefault();
+    }
+});
+
+document.addEventListener("keyup", event => {
+    if (event.key === "ArrowLeft" || event.key.toLowerCase() === "a") keys.left = false;
+    if (event.key === "ArrowRight" || event.key.toLowerCase() === "d") keys.right = false;
+    if (event.key === "ArrowUp" || event.key.toLowerCase() === "w" || event.key === " ") keys.jump = false;
+});
+
+function mobileButton(id, key) {
+    const button = document.getElementById(id);
+    button.addEventListener("pointerdown", e => { e.preventDefault(); keys[key] = true; });
+    button.addEventListener("pointerup", e => { e.preventDefault(); keys[key] = false; });
+    button.addEventListener("pointercancel", () => { keys[key] = false; });
+    button.addEventListener("pointerleave", () => { keys[key] = false; });
+}
 
 mobileButton("left", "left");
 mobileButton("right", "right");
 mobileButton("jump", "jump");
 
-
-/* =====================================================
-   COLISÃO
-===================================================== */
-
 function collision(a, b) {
-
-    return (
-
-        a.x < b.x + b.width &&
-
-        a.x + a.width > b.x &&
-
-        a.y < b.y + b.height &&
-
-        a.y + a.height > b.y
-
-    );
-
+    return (a.x < b.x + b.width && a.x + a.width > b.x && a.y < b.y + b.height && a.y + a.height > b.y);
 }
-
-
-/* =====================================================
-   RETÂNGULO DO PLAYER
-===================================================== */
 
 function playerRect() {
-
-    return {
-
-        x: playerX,
-        y: playerY,
-
-        width: player.offsetWidth,
-        height: player.offsetHeight
-
-    };
-
+    return { x: playerX, y: playerY, width: player.offsetWidth, height: player.offsetHeight };
 }
-
-
-/* =====================================================
-   ATUALIZAR PLAYER
-===================================================== */
 
 function updatePlayer() {
-
     const oldY = playerY;
-
     velocityX = 0;
 
-
-    if (keys.left) {
-
-        velocityX = -speed;
-
-    }
-
-
-    if (keys.right) {
-
-        velocityX = speed;
-
-    }
-
+    if (keys.left) velocityX = -speed;
+    if (keys.right) velocityX = speed;
 
     playerX += velocityX;
+    if (playerX < 0) playerX = 0;
+    if (playerX > worldWidth - 100) playerX = worldWidth - 100;
 
-
-    if (playerX < 0) {
-
-        playerX = 0;
-
-    }
-
-
-    if (playerX > worldWidth - 100) {
-
-        playerX = worldWidth - 100;
-
-    }
-
-
-    /* Pulo */
-
-    if (
-        keys.jump &&
-        grounded
-    ) {
-
+    if (keys.jump && grounded) {
         velocityY = -jumpPower;
-
         grounded = false;
-
     }
-
 
     velocityY += gravity;
-
     playerY += velocityY;
-
     grounded = false;
 
-
-    const p =
-        playerRect();
-
-
-    /* Plataformas */
+    const p = playerRect();
 
     for (const platform of platforms) {
-
-        const r = {
-
-            x: platform.offsetLeft,
-            y: platform.offsetTop,
-
-            width: platform.offsetWidth,
-            height: platform.offsetHeight
-
-        };
-
-
-        if (
-
-            p.x < r.x + r.width &&
-
-            p.x + p.width > r.x &&
-
-            oldY + p.height <= r.y + 8 &&
-
-            playerY + p.height >= r.y &&
-
-            velocityY >= 0
-
-        ) {
-
-            playerY =
-                r.y - p.height;
-
+        const r = { x: platform.offsetLeft, y: platform.offsetTop, width: platform.offsetWidth, height: platform.offsetHeight };
+        if (p.x < r.x + r.width && p.x + p.width > r.x && oldY + p.height <= r.y + 8 && playerY + p.height >= r.y && velocityY >= 0) {
+            playerY = r.y - p.height;
             velocityY = 0;
-
             grounded = true;
-
         }
-
     }
 
+    if (playerY > 750) loseLife();
 
-    /* Caiu */
-
-    if (playerY > 750) {
-
-        loseLife();
-
-    }
-
-
-    player.style.left =
-        playerX + "px";
-
-    player.style.top =
-        playerY + "px";
-
+    player.style.left = playerX + "px";
+    player.style.top = playerY + "px";
 }
-
-
-/* =====================================================
-   MOEDAS
-===================================================== */
 
 function collectCoins() {
-
-    const p =
-        playerRect();
-
-
+    const p = playerRect();
     coins.forEach(coin => {
-
-        if (
-            coin.dataset.collected
-        ) {
-            return;
-        }
-
-
-        const r = {
-
-            x: coin.offsetLeft,
-            y: coin.offsetTop,
-
-            width: coin.offsetWidth,
-            height: coin.offsetHeight
-
-        };
-
-
-        if (
-            collision(p, r)
-        ) {
-
-            coin.dataset.collected =
-                "true";
-
-            coin.style.display =
-                "none";
-
+        if (coin.dataset.collected) return;
+        const r = { x: coin.offsetLeft, y: coin.offsetTop, width: coin.offsetWidth, height: coin.offsetHeight };
+        if (collision(p, r)) {
+            coin.dataset.collected = "true";
+            coin.style.display = "none";
             score++;
-
-            coinsText.textContent =
-                score;
-
+            coinsText.textContent = score;
         }
-
     });
-
 }
-
-
-/* =====================================================
-   INIMIGOS
-===================================================== */
 
 function updateEnemies() {
-
-    const p =
-        playerRect();
-
-
+    const p = playerRect();
     enemies.forEach(enemy => {
-
-        if (
-            enemy.dataset.dead
-        ) {
-            return;
-        }
-
-
-        let x =
-            parseFloat(
-                enemy.style.left
-            );
-
-
-        const startX =
-            Number(enemy.dataset.x);
-
-
-        if (
-            !enemy.dataset.direction
-        ) {
-
-            enemy.dataset.direction =
-                "1";
-
-        }
-
-
-        let direction =
-            Number(
-                enemy.dataset.direction
-            );
-
+        if (enemy.dataset.dead) return;
+        let x = parseFloat(enemy.style.left);
+        const startX = Number(enemy.dataset.x);
+        if (!enemy.dataset.direction) enemy.dataset.direction = "1";
+        let direction = Number(enemy.dataset.direction);
 
         x += direction * 1.2;
+        if (x > startX + 100) direction = -1;
+        if (x < startX - 100) direction = 1;
 
+        enemy.dataset.direction = direction;
+        enemy.style.left = x + "px";
 
-        if (
-            x > startX + 100
-        ) {
+        const r = { x: x, y: enemy.offsetTop, width: enemy.offsetWidth, height: enemy.offsetHeight };
 
-            direction = -1;
-
-        }
-
-
-        if (
-            x < startX - 100
-        ) {
-
-            direction = 1;
-
-        }
-
-
-        enemy.dataset.direction =
-            direction;
-
-        enemy.style.left =
-            x + "px";
-
-
-        const r = {
-
-            x: x,
-            y: enemy.offsetTop,
-
-            width: enemy.offsetWidth,
-            height: enemy.offsetHeight
-
-        };
-
-
-        if (
-            collision(p, r)
-        ) {
-
-            /* Pisou no inimigo */
-
-            if (
-
-                velocityY > 0 &&
-
-                p.y + p.height - 10 <
-                r.y + 15
-
-            ) {
-
-                enemy.dataset.dead =
-                    "true";
-
-                enemy.style.transform =
-                    "scaleY(.25)";
-
-                velocityY =
-                    -8;
-
-            }
-
-            else {
-
+        if (collision(p, r)) {
+            if (velocityY > 0 && p.y + p.height - 10 < r.y + 15) {
+                enemy.dataset.dead = "true";
+                enemy.style.transform = "scaleY(.25)";
+                velocityY = -8;
+            } else {
                 loseLife();
-
             }
-
         }
-
     });
-
 }
-
-
-/* =====================================================
-   CHEGAR NA BANDEIRA
-===================================================== */
 
 function checkFlag() {
-
-    const p =
-        playerRect();
-
-
-    const r = {
-
-        x: flag.offsetLeft,
-        y: flag.offsetTop,
-
-        width: 100,
-        height: flag.offsetHeight
-
-    };
-
-
-    if (
-        collision(p, r)
-    ) {
-
-        winGame();
-
-    }
-
+    const p = playerRect();
+    const r = { x: flag.offsetLeft, y: flag.offsetTop, width: 100, height: flag.offsetHeight };
+    if (collision(p, r)) winGame();
 }
-
-
-/* =====================================================
-   CÂMERA
-===================================================== */
 
 function updateCamera() {
-
-    const center =
-        window.innerWidth / 2;
-
-
-    cameraX =
-        playerX - center;
-
-
-    if (cameraX < 0) {
-
-        cameraX = 0;
-
-    }
-
-
-    const maxCamera =
-        worldWidth -
-        window.innerWidth;
-
-
-    if (
-        cameraX > maxCamera
-    ) {
-
-        cameraX =
-            maxCamera;
-
-    }
-
-
-    world.style.transform =
-        `translateX(${-cameraX}px)`;
-
+    const center = window.innerWidth / 2;
+    cameraX = playerX - center;
+    if (cameraX < 0) cameraX = 0;
+    const maxCamera = worldWidth - window.innerWidth;
+    if (cameraX > maxCamera) cameraX = maxCamera;
+    world.style.transform = `translateX(${-cameraX}px)`;
 }
-
-
-/* =====================================================
-   PERDE VIDA
-===================================================== */
 
 function loseLife() {
-
     lives--;
-
-    livesText.textContent =
-        lives;
-
-
+    livesText.textContent = lives;
     if (lives <= 0) {
-
         gameOver();
-
         return;
-
     }
-
-
     playerX = 100;
     playerY = 470;
-
     velocityX = 0;
     velocityY = 0;
-
 }
-
-
-/* =====================================================
-   VITÓRIA
-===================================================== */
 
 function winGame() {
-
     gameRunning = false;
-
-    messageText.innerHTML =
-
-        "🏆 VOCÊ CHEGOU AO FINAL!<br>" +
-
-        "<small>" +
-        "Moedas coletadas: " +
-        score +
-        "</small>";
-
-    message.style.display =
-        "block";
-
+    messageText.innerHTML = "🏆 VOCÊ CHEGOU AO FINAL!<br><small>Moedas: " + score + "</small>";
+    message.style.display = "block";
 }
-
-
-/* =====================================================
-   GAME OVER
-===================================================== */
 
 function gameOver() {
-
     gameRunning = false;
-
-    messageText.innerHTML =
-
-        "💀 FIM DE JOGO<br>" +
-
-        "<small>" +
-        "Moedas coletadas: " +
-        score +
-        "</small>";
-
-    message.style.display =
-        "block";
-
+    messageText.innerHTML = "💀 FIM DE JOGO<br><small>Moedas: " + score + "</small>";
+    message.style.display = "block";
 }
-
-
-/* =====================================================
-   REINICIAR
-===================================================== */
-
-function restartGame() {
-
-    location.reload();
-
-}
-
-
-/* =====================================================
-   LOOP
-===================================================== */
 
 function gameLoop() {
-
-    if (!gameRunning) {
-        return;
-    }
-
-
+    if (!gameRunning) return;
     updatePlayer();
-
     updateEnemies();
-
     collectCoins();
-
     checkFlag();
-
     updateCamera();
-
-
-    requestAnimationFrame(
-        gameLoop
-    );
-
+    requestAnimationFrame(gameLoop);
 }
-
 </script>
 
 </body>
